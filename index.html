@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pilih Jalur Social Commerce untuk Usahamu</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f2f6f4;--fg:#12302b;--mut:#587068;--card:#fff;--line:#d3e0db;--acc:#0e6b5c;--accfg:#fff;--hi:#f5b83d;--hifg:#3a2a00}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1a18;--fg:#e6f1ed;--mut:#93aaa2;--card:#172624;--line:#2a3f3b;--acc:#4cc2ab;--accfg:#05231e;--hi:#f5b83d;--hifg:#3a2a00}}
+:root[data-theme="dark"]{--bg:#0f1a18;--fg:#e6f1ed;--mut:#93aaa2;--card:#172624;--line:#2a3f3b;--acc:#4cc2ab;--accfg:#05231e;--hi:#f5b83d;--hifg:#3a2a00}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*:before,*:after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.55 "Plus Jakarta Sans",system-ui,sans-serif}
+main{max-width:620px;margin:0 auto;padding:20px 16px 48px}
+h1{font-size:1.6rem;line-height:1.2;font-weight:800;margin:8px 0 10px}
+h2{font-size:1.2rem;font-weight:800;margin:0 0 14px;line-height:1.3}
+h3{font-size:1rem;font-weight:800;margin:0 0 6px}
+p{margin:0 0 12px}
+.mut{color:var(--mut)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:14px}
+.btn{font:inherit;font-weight:600;border:0;border-radius:10px;padding:13px 18px;background:var(--acc);color:var(--accfg);cursor:pointer;width:100%}
+.btn.ghost{background:transparent;color:var(--fg);border:1px solid var(--line)}
+.btn:focus-visible,.opt:focus-visible,summary:focus-visible{outline:3px solid var(--hi);outline-offset:2px}
+.bar{height:6px;background:var(--line);border-radius:3px;margin:6px 0 18px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--acc);transition:width .25s}
+.opt{display:block;width:100%;text-align:left;font:inherit;color:var(--fg);background:var(--card);border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:10px;cursor:pointer}
+.opt small{display:block;color:var(--mut);font-size:.85rem}
+.opt:hover{border-color:var(--acc)}
+.opt.on{border-color:var(--acc);background:color-mix(in srgb,var(--acc) 12%,var(--card))}
+.row{display:flex;gap:10px;margin-top:6px}
+.row .btn{flex:1}
+.top{border:2px solid var(--acc)}
+.tag{display:inline-block;background:var(--hi);color:var(--hifg);font-weight:800;font-size:.8rem;border-radius:6px;padding:2px 8px;margin-bottom:8px}
+.meter{display:flex;align-items:center;gap:10px;font-size:.9rem;margin:6px 0}
+.meter span:first-child{width:110px;flex:none}
+.meter b{display:block;height:8px;background:var(--acc);border-radius:4px;min-width:4px}
+.meter div{flex:1;background:var(--line);border-radius:4px}
+ul{margin:0 0 10px;padding-left:20px}
+li{margin-bottom:5px}
+details{margin-bottom:14px}
+summary{cursor:pointer;font-weight:600;padding:6px 0}
+.note{font-size:.85rem;color:var(--mut)}
+@media print{.row,.no-print{display:none}}
+h4{font-size:.9rem;font-weight:800;margin:12px 0 4px}
+.card details{margin:10px 0 0}
+.card details details{margin:6px 0 0;padding-left:8px;border-left:2px solid var(--line)}
+</style>
+</head>
+<body>
+<main id="app"></main>
+<script>
+var P={
+tshop:{s:"TikTok Shop",n:"TikTok Shop (jualan sebagai merchant)",why:"Jual produk fisik langsung lewat keranjang kuning, video, dan Live. Cocok kalau kamu sudah punya produk dan stok.",go:"Daftar lewat Seller Center, unggah 5 produk dengan foto jelas, lalu mulai video dan Live.",
+req:["Usia minimal 18 tahun dan punya akun TikTok aktif","Perorangan: WNI dengan KTP yang sesuai nama toko, plus rekening bank pribadi","Badan usaha: NIB (lewat OSS) dan dokumen perusahaan","Siapkan NIB walau perorangan, karena marketplace wajib memverifikasi legalitas penjual (Permendag 19/2026)"],
+pol:["Patuhi daftar barang terlarang dan kebijakan konten TikTok Shop","Produk tertentu butuh izin atau standar (misalnya BPOM, halal, SNI), cek per kategori"]},
+tiktok:{s:"TikTok",n:"TikTok (konten dan affiliate)",why:"Video pendek mudah ditemukan orang baru, dan kamu bisa menjual produk orang lain lewat affiliate tanpa stok.",go:"Pilih 1 niche, posting 3 video per minggu, lalu daftar affiliate lewat TikTok Studio.",
+req:["Usia minimal 18 tahun, verifikasi KTP, rekening atau e-wallet atas nama sendiri","Akun aktif dan tidak punya pelanggaran berat","Syarat jumlah pengikut berbeda antar sumber (sekitar 600 sampai 1.000) dan bisa berubah, jadi cek di TikTok Studio"],
+pol:["Cantumkan label kerja sama atau iklan pada konten promosi","Jangan pakai klaim berlebihan atau menyesatkan"]},
+food:{s:"Pesan-antar",n:"Aplikasi pesan-antar makanan (GoFood, GrabFood, ShopeeFood)",why:"Pembeli sudah berniat membeli makanan dan tinggal memesan. Cocok untuk warung, kedai, kafe, dan dapur rumahan yang bisa melayani pesan-antar.",go:"Pilih 1 atau 2 aplikasi dulu, siapkan foto menu dan outlet yang rapi, lalu atur harga dan jam buka.",
+req:["GoFood (lewat aplikasi GoBiz): outlet aktif yang menjual makanan atau minuman (termasuk home industry), KTP pemilik, rekening pemilik, email dan HP aktif, alamat dan telepon outlet. NPWP hanya jika kena pajak restoran (PB1).","GrabFood (lewat aplikasi GrabMerchant): KTP, swafoto dengan KTP, rekening bank (surat kuasa jika beda nama), foto menu beserta harga, dan foto outlet. Dokumen usaha atau NPWP mengikuti jenis usaha, cek formulir terbaru.","ShopeeFood (lewat aplikasi Shopee Partner): KTP pemilik (SIM atau KK tidak menggantikan KTP), rekening bank, foto menu dan outlet. NPWP opsional kecuali kena PB1. Badan usaha butuh dokumen perusahaan seperti NIB dan akta.","Ketiganya bergantung pada driver di areamu, jadi cek dulu apakah layanannya sudah tersedia."],
+pol:["Halal: makanan dan minuman usaha mikro-kecil wajib bersertifikat halal. Penahapan berakhir 17 Oktober 2026 dan kewajiban berlaku 18 Oktober 2026. Ada jalur self-declare dan program sertifikasi gratis dari pemerintah.","Makanan kemasan rumahan biasanya butuh izin edar seperti PIRT","Aplikasi memotong komisi dari tiap pesanan, hitung harga jual supaya tidak rugi"]},
+ig:{s:"Instagram",n:"Instagram",why:"Cocok untuk membangun tampilan brand yang rapi dan dipercaya lewat feed, Reels, dan Story, lalu mengarahkan pembeli ke tempat transaksi.",go:"Rapikan profil (foto, deskripsi, tautan), lalu posting 1 Reels dan 2 Story tiap minggu.",
+req:["Akun Bisnis atau Kreator","Fitur belanja (tas putih) ketersediaannya berbeda antar akun dan wilayah, dan umumnya untuk produk fisik. Cek di pengaturan akunmu.","Social commerce tidak boleh memfasilitasi pembayaran langsung (Permendag 19/2026), jadi transaksi biasanya diarahkan ke marketplace, website, atau WhatsApp"],
+pol:["Patuhi kebijakan perdagangan Meta (barang terlarang, klaim kesehatan)","Cantumkan label untuk konten kerja sama berbayar"]},
+yt:{s:"YouTube",n:"YouTube Shorts",why:"Video bisa ditemukan lewat pencarian dan bertahan lama. Shorts bisa dipakai untuk menautkan produk affiliate.",go:"Buat kanal, lalu unggah 1 Shorts berisi review atau tips singkat tiap minggu.",
+req:["Gabung YouTube Partner Program (YPP)","Affiliate YouTube Shopping: syarat subscriber dilaporkan turun dari 10.000 menjadi 500 pada Maret 2026. Cek di YouTube Studio karena bisa berubah.","Tinggal di negara yang didukung (Indonesia termasuk), bukan kanal musik atau konten anak"],
+pol:["Beri tahu penonton jika ada tautan affiliate atau kerja sama","Hanya produk yang tersedia di hub affiliate yang bisa ditautkan"]},
+th:{s:"Threads",n:"Threads",why:"Berbasis teks, tanpa perlu tampil di kamera. Cocok untuk bercerita, berbagi tips, dan menjaring pembeli lewat percakapan.",go:"Sambungkan dengan akun Instagram, lalu tulis 1 kisah atau tips singkat per hari.",
+req:["Akun Instagram yang aktif","Tidak ada fitur toko bawaan seperti keranjang, jadi arahkan pembeli lewat tautan atau chat"],
+pol:["Ikuti pedoman komunitas Meta","Cantumkan label jika konten dibayar atau berisi tautan affiliate"]},
+pin:{s:"Pinterest",n:"Pinterest",why:"Orang datang untuk mencari ide, jadi gambar produkmu bisa ditemukan lama. Cocok untuk fashion, dekor, makanan, dan kerajinan.",go:"Buat akun bisnis, susun 3 papan bertema produk, lalu pin 5 gambar per minggu dengan tautan.",
+req:["Akun bisnis gratis","Tautan mengarah ke toko atau marketplace yang sah"],
+pol:["Jika memakai tautan affiliate marketplace, cek ketentuan program affiliate-nya (sebagian membatasi tempat berbagi tautan) dan kebijakan Pinterest","Cantumkan keterangan bahwa itu tautan affiliate, dan hindari pin berulang yang dianggap spam"]},
+wa:{s:"WhatsApp",n:"WhatsApp Business",why:"Paling dekat dengan pembeli lokal. Katalog, status, dan grup pelanggan bisa jalan tanpa harus pandai membuat konten.",go:"Pasang WhatsApp Business, isi katalog, dan bagikan status produk tiap hari ke kontak.",
+req:["Aplikasi WhatsApp Business gratis dengan nomor khusus usaha","Lengkapi profil bisnis dan katalog produk"],
+pol:["Kirim pesan promosi hanya ke kontak yang setuju, hindari broadcast massal karena nomor bisa diblokir","Jaga data pelanggan dan jangan bagikan kode OTP"]}};
+var R={
+p:{n:"Penjual",d:"Kamu punya produk sendiri. Fokus pada foto atau video yang jelas, harga dan stok rapi, serta respon cepat ke pembeli.",plan:["Minggu 1: rapikan profil, foto produk, daftar harga, dan cek legalitas (NIB)","Minggu 2: posting konten pertama, minimal 3 kali","Minggu 3: balas semua komentar dan chat dalam sehari, catat pertanyaan yang sering muncul","Minggu 4: lihat konten mana yang paling banyak ditonton, ulangi yang berhasil"]},
+a:{n:"Affiliator",d:"Kamu menjual produk orang lain dan mendapat komisi. Modal kecil, tapi kepercayaan audiens jadi aset utama.",plan:["Minggu 1: pilih satu niche (misal dapur, fashion, atau gadget) dan cek syarat program affiliate","Minggu 2: pilih 5 produk yang benar-benar kamu pahami atau pakai","Minggu 3: buat review jujur dan cara pakai, sertakan tautan dan label affiliate","Minggu 4: cek produk mana yang diklik dan dibeli, fokus ke yang laku"]},
+k:{n:"Kreator dan jasa",d:"Kamu menjual keahlian atau jasa. Konten yang menunjukkan cara kerja dan hasilmu adalah etalasenya.",plan:["Minggu 1: tulis jasa apa yang ditawarkan dan untuk siapa","Minggu 2: posting contoh hasil kerja atau sebelum-sesudah","Minggu 3: bagikan 1 tips singkat dan pasang cara pesan di profil","Minggu 4: ajak 3 pelanggan lama memberi testimoni"]}};
+var Q=[
+{id:"prod",q:"Apa yang ingin kamu jual atau tawarkan?",o:[
+ ["Produk fisik (fashion, kerajinan, dll)",{tiktok:2,ig:2,th:1,wa:1},{role:"p",prod:"fisik"}],
+ ["Makanan atau minuman",{tiktok:2,ig:2,wa:3,th:1,food:2},{role:"p",prod:"fnb"}],
+ ["Jasa atau keahlian",{ig:2,th:2,yt:1,wa:2},{role:"k",prod:"jasa"}],
+ ["Belum punya produk",{tiktok:2,yt:1,pin:2,th:1},{role:"a",prod:"belum"}]]},
+{id:"outlet",q:"Bagaimana kondisi tempat usaha makananmu?",when:function(A){return A.prod===1},o:[
+ ["Warung, kedai, atau kafe yang buka tiap hari",{food:4},{}],
+ ["Dapur rumahan, siap mengantar pesanan",{food:1},{}],
+ ["Hanya pre-order, tanpa stok harian",{wa:2,ig:1},{noFood:1}]]},
+{id:"time",q:"Berapa waktu yang bisa kamu sisihkan untuk sosmed tiap minggu?",o:[
+ ["Kurang dari 2 jam",{wa:2,th:1,pin:1},{time:1}],["2 sampai 5 jam",{ig:1,th:1,tiktok:1},{}],["5 sampai 10 jam",{tiktok:1,ig:1,yt:1},{}],["Lebih dari 10 jam",{tiktok:2,yt:2},{}]]},
+{id:"cam",q:"Seberapa nyaman kamu tampil di kamera atau live?",o:[
+ ["Nyaman, bahkan suka",{tiktok:3,yt:1,ig:1},{}],["Kadang-kadang",{tiktok:1,ig:2},{}],["Lebih suka di belakang layar",{pin:2,th:2,wa:2,food:1},{shy:1}]]},
+{id:"skill",q:"Kemampuan bikin kontenmu saat ini?",o:[
+ ["Baru bisa foto lewat HP",{ig:1,pin:2,th:2,wa:2,food:1},{}],["Bisa edit video sederhana",{tiktok:2,ig:2,yt:1},{}],["Sudah rutin posting",{tiktok:1,yt:2,ig:1},{}]]},
+{id:"ship",q:"Bagaimana layanan pengiriman di daerahmu?",o:[
+ ["Lengkap: ojol, kurir instan, dan ekspedisi",{tiktok:1,ig:1,food:2},{}],
+ ["Hanya ekspedisi biasa",{wa:1,pin:1,th:1,food:-2},{ship:"eks"}],
+ ["Terbatas, banyak layanan belum masuk",{wa:2,th:1,pin:1},{ship:"ter"}]]},
+{id:"buyer",q:"Siapa pembeli utamamu?",o:[
+ ["Anak muda",{tiktok:2,ig:1,th:1},{}],["Ibu rumah tangga dan keluarga",{wa:2,tiktok:1,ig:1,food:1},{}],["Warga sekitar",{wa:3,ig:1,food:1},{}],["Pembeli luas se-Indonesia",{tiktok:1,yt:1,pin:1,th:1},{}]]},
+{id:"cash",q:"Berapa modal yang siap kamu pakai untuk mulai?",o:[
+ ["Hampir nol, pakai HP yang ada",{th:1,pin:1,wa:1,tiktok:1},{}],["Sampai Rp1 juta",{tiktok:1,ig:1},{}],["Lebih dari Rp1 juta",{ig:1,yt:1,tiktok:1},{}]]},
+{id:"doc",q:"Dokumen usaha apa yang sudah kamu punya?",o:[
+ ["Baru KTP dan rekening bank",{},{doc:0}],["Sudah punya NIB",{},{doc:1}],["NIB dan izin produk (PIRT, halal, atau BPOM)",{},{doc:2}],["Belum tahu apa itu NIB",{},{doc:0}]]},
+{id:"goal",q:"Apa tujuan utamamu dalam 3 bulan ke depan?",o:[
+ ["Menaikkan penjualan",{tiktok:2,ig:1,wa:1,food:1},{}],["Lebih dikenal sebagai brand",{ig:2,th:1,yt:1},{}],["Penghasilan tambahan tanpa stok barang",{tiktok:2,pin:1,yt:1,th:1},{role:"a"}]]}
+];
+var A={},i=0,app=document.getElementById("app");
+function esc(s){return String(s).replace(/[&<>]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;"}[c]})}
+function flow(){return Q.filter(function(q){return !q.when||q.when(A)})}
+function ul(a){return "<ul>"+a.map(function(t){return "<li>"+esc(t)+"</li>"}).join("")+"</ul>"}
+function reqs(p){return "<h4>Syarat daftar</h4>"+ul(p.req)+"<h4>Kebijakan yang perlu dipatuhi</h4>"+ul(p.pol)}
+function intro(){app.innerHTML='<h1>Pilih jalur social commerce yang pas untuk usahamu</h1><p class="mut">Jawab sekitar 9 pertanyaan singkat. Di akhir kamu dapat rekomendasi platform lengkap dengan syarat dan kebijakannya, peranmu, dan rencana 30 hari. Tidak ada jawaban benar atau salah.</p><div class="card"><button class="btn" id="go">Mulai</button></div>';
+document.getElementById("go").onclick=function(){i=0;A={};ask()}}
+function ask(){var F=flow(),q=F[i],h='<div class="mut">Pertanyaan '+(i+1)+' dari '+F.length+'</div><div class="bar"><i style="width:'+(i/F.length*100)+'%"></i></div><h2>'+esc(q.q)+'</h2>';
+q.o.forEach(function(o,k){h+='<button class="opt'+(A[q.id]===k?' on':'')+'" data-k="'+k+'">'+esc(o[0])+'</button>'});
+h+='<div class="row">'+(i?'<button class="btn ghost" id="bk">Kembali</button>':'')+'</div>';app.innerHTML=h;
+Array.prototype.forEach.call(app.querySelectorAll(".opt"),function(b){b.onclick=function(){A[q.id]=+b.dataset.k;if(i<flow().length-1){i++;ask()}else done()}});
+var bk=document.getElementById("bk");if(bk)bk.onclick=function(){i--;ask()};window.scrollTo(0,0)}
+function done(){var F=flow(),s={},f={},k;for(k in P)s[k]=0;
+F.forEach(function(q){var o=q.o[A[q.id]];for(var p in o[1])s[p]+=o[1][p];for(var x in o[2])f[x]=o[2][x]});
+var role=f.role||"p";if(A.goal===2)role="a";
+if(!(f.prod==="fnb"&&!f.noFood&&f.ship!=="ter"))s.food=-99;
+if((f.prod==="fisik"||f.prod==="fnb")&&role!=="a"){s.tshop=s.tiktok+(f.prod==="fisik"?1:0);s.tiktok=-99}else s.tshop=-99;
+var rank=Object.keys(s).filter(function(x){return s[x]>-50}).sort(function(a,b){return s[b]-s[a]}),max=s[rank[0]]||1,r=R[role];
+var h='<h1>Hasil untuk usahamu</h1><div class="card"><h3>Perananmu: '+r.n+'</h3><p>'+r.d+'</p></div>';
+[0,1].forEach(function(n){var p=P[rank[n]];h+='<div class="card'+(n?'':' top')+'"><span class="tag">'+(n?'Pendamping':'Mulai di sini')+'</span><h3>'+p.n+'</h3><p>'+p.why+'</p><p><b>Langkah pertama:</b> '+p.go+'</p><details'+(n?'':' open')+'><summary>Syarat dan kebijakan</summary>'+reqs(p)+'</details></div>'});
+h+='<div class="card"><h3>Kecocokan platform</h3>';
+rank.forEach(function(x){h+='<div class="meter"><span>'+P[x].s+'</span><div><b style="width:'+Math.max(4,Math.round(Math.max(s[x],0)/max*100))+'%"></b></div></div>'});
+h+='</div><div class="card"><h3>Hal yang perlu diwaspadai</h3><ul>';
+var w=[];
+if(f.doc===0)w.push("Urus NIB dulu, gratis lewat oss.go.id. Permendag 19/2026 (berlaku 8 Juni 2026) mewajibkan NIB bagi penjual di marketplace dan social commerce. Masa transisinya disebut 6 sampai 18 bulan di berbagai sumber, jadi cek ke platform dan Kemendag.");
+if(f.prod==="fnb"&&f.doc!==2)w.push("Makanan dan minuman usaha mikro-kecil wajib bersertifikat halal. Penahapan berakhir 17 Oktober 2026 dan kewajiban berlaku 18 Oktober 2026. Tanya pendamping halal terdekat soal jalur self-declare yang gratis.");
+if(f.ship==="ter")w.push("Layanan di daerahmu terbatas. Aplikasi pesan-antar dan fitur yang butuh ojol atau voucher lokal bergantung pada ketersediaan driver, jadi utamakan ekspedisi dan WhatsApp.");
+if(f.ship==="eks")w.push("Pengiriman hanya ekspedisi. Pastikan ongkir dan estimasi tiba jelas sebelum pembeli bayar.");
+if(f.time)w.push("Waktumu sedikit. Pilih satu platform saja dan target konsisten 3 posting per minggu.");
+if(f.shy)w.push("Tidak perlu tampil di kamera. Mulai dari foto produk, teks cerita, atau video yang hanya menampilkan tangan dan produk.");
+w.push("Jangan bergantung pada satu platform. Aturan dan biaya bisa berubah, jadi simpan kontak pembeli lewat WhatsApp.");
+w.push("Hindari klaim berlebihan (misal khasiat kesehatan) dan cantumkan label untuk konten kerja sama atau affiliate.");
+w.forEach(function(t){h+='<li>'+esc(t)+'</li>'});
+h+='</ul></div><div class="card"><h3>Rencana 30 hari</h3>'+ul(r.plan)+'</div>';
+h+='<details class="card"><summary>Syarat dan kebijakan semua platform</summary>';
+Object.keys(P).forEach(function(x){h+='<details><summary>'+P[x].n+'</summary>'+reqs(P[x])+'</details>'});
+h+='</details><details class="card"><summary>Lihat jawabanmu</summary><ul>';
+F.forEach(function(q){h+='<li><b>'+esc(q.q)+'</b><br>'+esc(q.o[A[q.id]][0])+'</li>'});
+h+='</ul></details><p class="note">Ini panduan awal berdasarkan jawabanmu. Informasi syarat dirangkum dari laman resmi platform dan pemberitaan per Oktober 2026. Syarat, biaya, dan fitur bisa berubah serta berbeda per akun atau wilayah, jadi cek halaman resmi tiap platform sebelum mendaftar.</p>';
+h+='<div class="row no-print"><button class="btn" id="cp">Salin ringkasan</button><button class="btn ghost" id="rs">Ulangi</button></div><p class="note" id="msg" aria-live="polite"></p>';
+app.innerHTML=h;window.scrollTo(0,0);
+var txt="Hasil jalur social commerce\nPeran: "+r.n+"\nMulai di: "+P[rank[0]].n+"\nPendamping: "+P[rank[1]].n+"\nLangkah pertama: "+P[rank[0]].go+"\nRencana 30 hari:\n- "+r.plan.join("\n- ");
+document.getElementById("rs").onclick=intro;
+document.getElementById("cp").onclick=function(){var m=document.getElementById("msg");
+function ok(){m.textContent="Ringkasan tersalin."}function bad(){m.textContent="Tidak bisa menyalin otomatis. Silakan screenshot halaman ini."}
+try{navigator.clipboard.writeText(txt).then(ok,bad)}catch(e){bad()}}}
+intro();
+</script>
+</body>
+</html>
